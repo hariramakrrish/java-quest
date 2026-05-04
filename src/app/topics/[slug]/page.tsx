@@ -1,10 +1,8 @@
 import { notFound } from "next/navigation";
-import { TOPICS, getTopicBySlug } from "@/content/topics";
+import { getTopicBySlug } from "@/content/topics";
 import { TopicView } from "@/components/TopicView";
 
-export function generateStaticParams() {
-  return TOPICS.map((t) => ({ slug: t.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export default async function TopicPage({
   params,
